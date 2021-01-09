@@ -8,7 +8,10 @@
 function generatePassword(){
  var passwordLength = prompt("length needs to be between 8 and 128 characters")
  console.log(passwordLength)
-}
+ if(passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength) === true )
+ {alert("character count is invalid")
+  return}
+}//created alert for numbers outside of peramiters 
 
 
 
