@@ -1,4 +1,7 @@
-
+var numbers = "0123456789";
+var specialChars = "!@#$%^&*()_+~`|}{[]:;?/-=";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = lowerCase.toUpperCase();
 // WHEN I click the button to generate a password
 // --something happens when i click the button
 // THEN I am presented with a series of prompts for password criteria
@@ -12,7 +15,6 @@ function generatePassword(){
  {alert("character count is invalid")
   return}
 }//created alert for numbers outside of peramiters 
-
 
 
 
