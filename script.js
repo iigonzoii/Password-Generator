@@ -17,7 +17,12 @@ function generatePassword(){
  {alert("character count is invalid")
   return}
   else if (passwordLength >=8 && passwordLength <= 128 && isNaN(passwordLength) === false){
-    var lowerCaseConfirm = confirm("do you want to include lower case letters?") 
+    var lowerCaseConfirm = confirm("do you want to include lower case letters?");
+    if (lowerCaseConfirm === true){
+      passwordSelection.push("lowerCase")
+    } 
+    
+    // add variables for other options here
   }
   
 }//created alert for numbers outside of peramiters 
