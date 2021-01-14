@@ -8,6 +8,7 @@ var specialCharsResponse = false;
 var lowerCaseResponse = false;
 var desiredLength = 0;
 var includedCharContainer = "";
+var newPassword = "";
 
 
 function choices() {
@@ -21,13 +22,22 @@ function choices() {
 function generateCharOptions(){
   if (upperCaseResponse == true)
     includedCharContainer = includedCharContainer.concat(upperCase)
-  if (numberResponse == true)
-  includedCharContainer = includedCharContainer.concat(number)
+  if (numbersResponse == true)
+  includedCharContainer = includedCharContainer.concat(numbers)
   if (specialCharsResponse == true)
   includedCharContainer = includedCharContainer.concat(specialChars)
   if (lowerCaseResponse == true)
   includedCharContainer = includedCharContainer.concat(lowerCase)
 }
+
+function generatePassword(){
+  for (i=0; i < desiredLength; i++){
+    var random = Math.floor(Math.random()*includedCharContainer.length);
+    newPassword = newPassword + includedCharContainer[random];
+  }
+  return newPassword
+} 
+
 // WHEN I click the button to generate a password
 // --something happens when i click the button
 // THEN I am presented with a series of prompts for password criteria
@@ -82,6 +92,8 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  choices();
+  generateCharOptions();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
