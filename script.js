@@ -16,7 +16,7 @@ function choices() {
   desiredLength = prompt("Please choose the length of your password (must be between 8 and 128 characters).")
   upperCaseResponse = confirm("do you want to include upper case letters?");
   numbersResponse = confirm("do you want to include numbers?");
-  specialCharsResponse = confirm("do you want to include upper case letters?");
+  specialCharsResponse = confirm("do you want to include special characters?");
   lowerCaseResponse = confirm("do you want to include lower case letters?");
 }
 
