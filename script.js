@@ -11,9 +11,16 @@ var desiredLength = 0;
 var includedCharContainer = "";
 var newPassword = "";
 
+
 // how do i prompt choices?.. create a function to prompt the choices
 function choices() {
   desiredLength = prompt("Please choose the length of your password (must be between 8 and 128 characters).")
+  if (desiredLength > 7 && desiredLength < 129) {
+    alert(`your password will contain ${desiredLength} characters`)
+  } else {
+    alert("your character count is invalid")
+    desiredLength = prompt("Please choose the length of your password (must be between 8 and 128 characters).")
+  }
   upperCaseResponse = confirm("do you want to include upper case letters?");
   numbersResponse = confirm("do you want to include numbers?");
   specialCharsResponse = confirm("do you want to include special characters?");
@@ -21,29 +28,29 @@ function choices() {
 }
 
 /* how do i create somewhere that stores all the different types of characters based on their selection?....
-	write a function that references our boolean variables to figure out which strings to include in our master string.....
-	we will concat the included strings based on the user input criteria. */
-function generateCharOptions(){
+  write a function that references our boolean variables to figure out which strings to include in our master string.....
+  we will concat the included strings based on the user input criteria. */
+function generateCharOptions() {
   if (upperCaseResponse == true)
     includedCharContainer = includedCharContainer.concat(upperCase)
   if (numbersResponse == true)
-  includedCharContainer = includedCharContainer.concat(numbers)
+    includedCharContainer = includedCharContainer.concat(numbers)
   if (specialCharsResponse == true)
-  includedCharContainer = includedCharContainer.concat(specialChars)
+    includedCharContainer = includedCharContainer.concat(specialChars)
   if (lowerCaseResponse == true)
-  includedCharContainer = includedCharContainer.concat(lowerCase)
+    includedCharContainer = includedCharContainer.concat(lowerCase)
 }
 /* how do we generate the password?...i will create a function to randomize the characters in our library based on the users selection
-	we write a for loop that is set to run the length of desired character selection
-	appends each character to the password string 
+  we write a for loop that is set to run the length of desired character selection
+  appends each character to the password string 
  */
-function generatePassword(){
-  for (i=0; i < desiredLength; i++){
-    var random = Math.floor(Math.random()*includedCharContainer.length);
+function generatePassword() {
+  for (i = 0; i < desiredLength; i++) {
+    var random = Math.floor(Math.random() * includedCharContainer.length);
     newPassword = newPassword + includedCharContainer[random];
   }
   return newPassword
-} 
+}
 
 
 
