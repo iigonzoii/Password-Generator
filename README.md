@@ -1,6 +1,7 @@
 # Password-Generator
 
 <img alt="screenshot of password genreator" src="./images/pg.jpg">
+<img alt="screenshot of generated password" src="./images/pg2.jpg">
 
 ## Motivation
 I wanted to verify my ability to write a functioning generator into existence using JavaScript. 
