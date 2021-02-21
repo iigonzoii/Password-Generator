@@ -1,8 +1,9 @@
 # Password-Generator
 
 <img alt="screenshot of password genreator" src="./images/pg.jpg">
-<img alt="screenshot of generated password" src="./images/pg2.jpg">
 <img alt="screenshot of prompt" src="./images/pg3.jpg">
+<img alt="screenshot of generated password" src="./images/pg2.jpg">
+
 
 ## Directions
 * Click the generate password button
