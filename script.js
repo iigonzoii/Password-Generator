@@ -45,6 +45,7 @@ function generateCharOptions() {
   appends each character to the password string 
  */
 function generatePassword() {
+  newPassword=""
   for (i = 0; i < desiredLength; i++) {
     var random = Math.floor(Math.random() * includedCharContainer.length);
     newPassword = newPassword + includedCharContainer[random];
