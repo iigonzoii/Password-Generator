@@ -1,15 +1,15 @@
 // how am i storing the data?... list global variables as strings at the top
-var numbers = "0123456789";
-var specialChars = "!@#$%^&*()_+~`|}{[]:;?/-=";
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var upperCase = lowerCase.toUpperCase();
-var upperCaseResponse = false;
-var numbersResponse = false;
-var specialCharsResponse = false;
-var lowerCaseResponse = false;
-var desiredLength = 0;
-var includedCharContainer = "";
-var newPassword = "";
+let numbers = "0123456789";
+let specialChars = "!@#$%^&*()_+~`|}{[]:;?/-=";
+let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+let upperCase = lowerCase.toUpperCase();
+let upperCaseResponse = false;
+let numbersResponse = false;
+let specialCharsResponse = false;
+let lowerCaseResponse = false;
+let desiredLength = 0;
+let includedCharContainer = "";
+let newPassword = "";
 
 
 // how do i prompt choices?.. create a function to prompt the choices
@@ -21,33 +21,35 @@ function choices() {
     alert("your character count is invalid")
     desiredLength = prompt("Please choose the length of your password (must be between 8 and 128 characters).")
   }
-  upperCaseResponse = confirm("do you want to include upper case letters?");
-  numbersResponse = confirm("do you want to include numbers?");
-  specialCharsResponse = confirm("do you want to include special characters?");
-  lowerCaseResponse = confirm("do you want to include lower case letters?");
+  upperCaseResponse = confirm("do you want to include upper case letters? Choose Ok for yes and cancel for no.");
+  numbersResponse = confirm("do you want to include numbers? Choose Ok for yes and cancel for no.");
+  specialCharsResponse = confirm("do you want to include special characters? Choose Ok for yes and cancel for no.");
+  lowerCaseResponse = confirm("do you want to include lower case letters? Choose Ok for yes and cancel for no.");
 }
 
 /* how do i create somewhere that stores all the different types of characters based on their selection?....
-  write a function that references our boolean variables to figure out which strings to include in our master string.....
+  write a function that references our boolean letiables to figure out which strings to include in our master string.....
   we will concat the included strings based on the user input criteria. */
 function generateCharOptions() {
-  if (upperCaseResponse == true)
+  if (upperCaseResponse)
     includedCharContainer = includedCharContainer.concat(upperCase)
-  if (numbersResponse == true)
+  if (numbersResponse)
     includedCharContainer = includedCharContainer.concat(numbers)
-  if (specialCharsResponse == true)
+  if (specialCharsResponse)
     includedCharContainer = includedCharContainer.concat(specialChars)
-  if (lowerCaseResponse == true)
+  if (lowerCaseResponse)
     includedCharContainer = includedCharContainer.concat(lowerCase)
 }
 /* how do we generate the password?...i will create a function to randomize the characters in our library based on the users selection
   we write a for loop that is set to run the length of desired character selection
   appends each character to the password string 
  */
+
+  // make newPassword equal to an empty string so it resets everytime you choose something new.
 function generatePassword() {
   newPassword=""
   for (i = 0; i < desiredLength; i++) {
-    var random = Math.floor(Math.random() * includedCharContainer.length);
+    let random = Math.floor(Math.random() * includedCharContainer.length);
     newPassword = newPassword + includedCharContainer[random];
   }
   return newPassword
@@ -57,14 +59,14 @@ function generatePassword() {
 
 
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
   choices();
   generateCharOptions();
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
